@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phieu so 1</title>
+
+</head>
+
+<body>
+    <p> Ngày tháng năm sinh:
+        <select id="day" name="day"></select>
+        tháng
+        <select id="month" name="month"></select>
+        năm
+        <select id="year" name="year"></select>
+        <script>
+            window.onload = function () {
+                alert("Xin chào")
+                var day = document.getElementById("day")
+                var month = document.getElementById("month")
+                var year = document.getElementById("year")
+                for (var i = 1; i <= 31; i++) {
+                    var option = document.createElement('option');
+                    option.value = i;
+                    option.text = i;
+                    day.appendChild(option)
+                }
+                for (var i = 1; i <= 12; i++) {
+                    var option = document.createElement('option');
+                    option.value = i;
+                    option.text = i;
+                    month.appendChild(option)
+                }
+                for (var i = 1900; i <= 2100; i++) {
+                    var option = document.createElement('option');
+                    option.value = i;
+                    option.text = i;
+                    year.appendChild(option)
+                }
+            }
+        </script>
+    </p>
+</body>
+
+</html>

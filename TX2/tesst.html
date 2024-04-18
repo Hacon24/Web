@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý thời gian và tiền</title>
+</head>
+<body>
+    <label for="inputTime">Nhập giờ vào:</label>
+    <input type="time" id="inputTime">
+    <br>
+    <label for="outputTime">Nhập giờ ra:</label>
+    <input type="time" id="outputTime">
+    <br>
+    <p><strong>Tổng thời gian đã sử dụng:</strong> <span id="totalTime">0 giờ</span></p>
+    <button onclick="calculateTotal()">Tính tổng tiền</button>
+    <button onclick="clearInputs()">Xóa thông tin</button>
+
+    <script>
+        function calculateTotal() {
+            const inputTime = document.getElementById('inputTime').value;
+            const outputTime = document.getElementById('outputTime').value;
+
+            // Chuyển đổi thời gian thành số phút
+            const inputMinutes = convertToMinutes(inputTime);
+            const outputMinutes = convertToMinutes(outputTime);
+
+            // Tính tổng thời gian đã sử dụng
+            const totalTimeMinutes = outputMinutes - inputMinutes;
+
+            // Giả sử giá tiền là 1000 đồng/phút
+            const pricePerMinute = 1000;
+            const totalPrice = totalTimeMinutes * pricePerMinute;
+
+            // Hiển thị tổng thời gian và tiền
+            document.getElementById('totalTime').textContent = `${totalTimeMinutes} phút (${totalPrice} đồng)`;
+        }
+
+        function convertToMinutes(timeString) {
+            const [hours, minutes] = timeString.split(':');
+            return parseInt(hours) * 60 + parseInt(minutes);
+        }
+
+        function clearInputs() {
+            document.getElementById('inputTime').value = '';
+            document.getElementById('outputTime').value = '';
+            document.getElementById('totalTime').textContent = '0 giờ';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý thời gian và tiền</title>
+</head>
+<body>
+    <table border="1" cellpadding="5px" cellspacing="0" align="center"> 
+        <tr>
+            <td colspan="2">Tính tiền Karaoke</td>
+        </tr>
+        <tr>
+            <td>
+                <label for="inputTime">Giờ vào (HH:MM):</label>
+            </td>
+            <td>
+                <input type="text" id="inputTime" placeholder="08:00">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="outputTime">Giờ ra (HH:MM):</label>
+            </td>
+            <td>
+                <input type="text" id="outputTime" placeholder="17:00">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">Tổng tiền:</label>
+            </td>
+            <td>
+                <input type="text" disabled id="totalPrice" placeholder="0 đồng">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="calculateTotal()">tổng tiền</button>
+                <button onclick="clearInputs()">Xóa</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function calculateTotal() {
+            const inputTime = document.getElementById('inputTime').value;
+            const outputTime = document.getElementById('outputTime').value;
+
+            if (!/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(inputTime) || !/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(outputTime)) {
+                alert('Vui lòng nhập thời gian theo định dạng HH:MM');
+                return;
+            }
+
+            const inputM = convertToMinutes(inputTime);
+            const outputM = convertToMinutes(outputTime);
+
+            const totalTimeMinutes = outputM - inputM;
+
+            const before = 40/60 * 1000;
+            const after = 1000;
+
+            let totalPrice = 0;
+            if (outputM <= convertToMinutes('18:00')) {
+                totalPrice = totalTimeMinutes * before;
+            } else if (inputM <= convertToMinutes('18:00') && outputM >= convertToMinutes('18:00')) {
+                totalPrice = ((convertToMinutes('18:00') - inputM) * before) + ((outputM - convertToMinutes('18:00')) * after)
+            } else {
+                totalPrice = totalTimeMinutes * after;
+            }
+
+            document.getElementById('totalPrice').value = `${totalPrice} đồng`;
+        }
+
+        function convertToMinutes(timeString) {
+            const [hours, minutes] = timeString.split(':');
+            return parseInt(hours) * 60 + parseInt(minutes);
+        }
+
+        function clearInputs() {
+            document.getElementById('inputTime').value = '';
+            document.getElementById('outputTime').value = '';
+            document.getElementById('totalPrice').value = '0 đồng';
+        }
+    </script>
+</body>
+</html>

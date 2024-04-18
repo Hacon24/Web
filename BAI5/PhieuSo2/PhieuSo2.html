@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>Bài 1: Giải phương trình bậc 2 ax<sup>2</sup>+bx+c=0</p>
+    <p>Với a = 4, b = 6, c = 2</p>
+    <p>Kết quả
+    <p id="x"></p>
+    <p id="x1"></p>
+    <p id="x2"></p>
+    <script>
+        function solveQuadratic() {
+            var a = 4;
+            var b = 6;
+            var c = 2;
+
+            var delta = b * b - 4 * a * c;
+
+            if (a == 0) {
+                if (b == 0) {
+                    if (c == 0) {
+                        document.getElementById('x').textContent = "x = 0"
+                    } else {
+                        document.getElementById('x').textContent = "Không thể giải phương trình"
+                    }
+                } else {
+                    document.getElementById('x').textContent = "x = " + (-c / b)
+                }
+            } else if (delta >= 0) {
+                document.getElementById('x1').textContent = "x1 = " + (-b + Math.sqrt(delta)) / (2 * a);
+                document.getElementById('x2').textContent = "x2 = " + (-b - Math.sqrt(delta)) / (2 * a);
+            } else {
+                document.getElementById('x').textContent = "Phương trình vô nghiệm"
+            }
+        }
+        window.onload = function () {
+            solveQuadratic()
+        }
+    </script>
+    </p>
+    <hr>
+    <div>
+        <div class="top">
+            <button type="button" onclick="getInput('1')">1</button>
+            <button type="button" onclick="getInput('2')">2</button>
+            <button type="button" onclick="getInput('3')">3</button>
+            <button type="button" onclick="getInput('4')">4</button>
+            <button type="button" onclick="getInput('5')">5</button>
+            <button type="button" onclick="getInput('+')">+</button>
+        </div>
+        <div class="bottom">
+            <button type="button" onclick="getInput('6')">6</button>
+            <button type="button" onclick="getInput('7')">7</button>
+            <button type="button" onclick="getInput('8')">8</button>
+            <button type="button" onclick="getInput('9')">9</button>
+            <button type="button" onclick="getInput('0')">0</button>
+            <button type="button" onclick="calculator()">=</button>
+        </div>
+        <input type="text" id="display" readonly>
+        <script>
+            const display = document.getElementById("display")
+            var result
+            function getInput(input) {
+                result.value += input
+            }
+            function calculator() {
+                try {
+                    display.value = eval(result.value)
+                } catch (error) {
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>
