@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<body>
+    <table border="1" cellpadding="5px">
+        <tr>
+            <td colspan="2">
+                <p>tinh tien</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">so km da di</label>
+            </td>
+            <td>
+                <input type="text" id="inputDis">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">tien thanh toan</label>
+            </td>
+            <td>
+                <input type="text" id="totalPrice">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="cal()">Tinh</button>
+                <button onclick="del()">xoa</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function cal() {
+            var distance = document.getElementById("inputDis").value
+            var totalPrice = document.getElementById("totalPrice")
+            if (distance <= 10) {
+                totalPrice = distance * 15000
+            } else if (distance > 10 && distance <= 50) {
+                totalPrice = 150000 + (distance - 10) * 12000
+            } else {
+                totalPrice = 150000 + 40 * 12000 + (distance - 50) * 9000 
+            }
+            document.getElementById("totalPrice").value = totalPrice
+        }
+
+        function del() {
+            document.getElementById("inputDis").value = ""
+            document.getElementById("totalPrice").value = ""
+        }
+    </script>
+</body>

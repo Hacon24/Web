@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<body>
+    <table border="1" cellspacing="0" cellpadding="5px">
+        <tr>
+            <td colspan="2">
+                tinh tien karaoke
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">Gio vao</label>
+            </td>
+            <td>
+                <input id="inputTime" type="text" placeholder="8:00">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">Gio ra</label>
+            </td>
+            <td>
+                <input id="outputTime" type="text" placeholder="17:00">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">Tong tien</label>
+            </td>
+            <td>
+                <input id="totalPrice" type="text" placeholder="0 d">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="del()">xoa</button>
+                <button onclick="cal()">tong</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function cal() {
+            var inputTime = document.getElementById("inputTime").value
+            var outputTime = document.getElementById("outputTime").value
+
+            if (!/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(inputTime) || !/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(outputTime)) {
+                alert("khong dung dinh dang")
+                del()
+                return
+            }
+
+            var inputM = convert(inputTime)
+            var outputM = convert(outputTime)
+
+            const before6PM = 40 / 60 * 1000
+            const after6PM = 1000
+
+            var totalPrice = document.getElementById("totalPrice")
+
+            if (inputM < convert("18:00") && outputM >= convert("18:00")) {
+                totalPrice = (18 * 60 - inputM) * before6PM + (outputM - 18 * 60) * after6PM
+            } else if (inputM >= convert("00:00") && outputM < convert("18:00")) {
+                totalPrice = (outputM - inputM) * before6PM
+            } else if (inputM >= convert("18:00") && outputM <= convert("23:59")) {
+                totalPrice = (outputM - inputM) * after6PM
+            }
+            document.getElementById("totalPrice").value = totalPrice
+        }   
+
+        function convert(time) {
+            const [hours, minutes] = time.split(":")
+            return parseInt(hours) * 60 + parseInt(minutes)
+        }
+
+        function del() {
+            document.getElementById("inputTime").value = ""
+            document.getElementById("outputTime").value = ""
+            document.getElementById("totalPrice").value = ""
+        }
+    </script>
+</body>

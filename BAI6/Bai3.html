@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<body>
+    <table border="1" cellpadding="5px">
+        <tr>
+            <td colspan="2">
+                <p>tinh tong</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">nhap n</label>
+            </td>
+            <td>
+                <input type="text" id="inputN">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">tong day so le</label>
+            </td>
+            <td>
+                <input type="text" id="sum">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="cal()">Tinh</button>
+                <button onclick="del()">xoa</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function cal() {
+            var N = document.getElementById("inputN").value
+            var sum = 0
+            for (let i = 1; i <= N; i++) {
+                if (!(i % 2 == 0)) {
+                    sum += i
+                }
+            }
+            document.getElementById("sum").value = sum
+        }
+
+        function del() {
+            document.getElementById("inputN").value = ""
+            document.getElementById("sum").value = ""
+        }
+    </script>
+</body>

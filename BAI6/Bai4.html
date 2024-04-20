@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<body>
+    <table border="1" cellpadding="5px">
+        <tr>
+            <td colspan="2">
+                <p>tinh tong</p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">nhap n</label>
+            </td>
+            <td>
+                <input type="text" id="inputN">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="">tong day so nguyen to</label>
+            </td>
+            <td>
+                <input type="text" id="sum">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="cal()">Tinh</button>
+                <button onclick="del()">xoa</button>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function cal() {
+            var N = document.getElementById("inputN").value
+            var sum = 0
+            for (let i = 1; i <= N; i++) {
+                if (isPrime(i)) {
+                    sum += i
+                }
+            }
+            document.getElementById("sum").value = sum
+        }
+
+        function isPrime(n) {
+            if (n < 2) return false
+            if (n == 2) return true
+            if (n % 2 == 0) return false
+            for (let i = 3; (i * i) <= n; i += 2)
+                if (n % i == 0) return false
+            return true
+        }
+
+        function del() {
+            document.getElementById("inputN").value = ""
+            document.getElementById("sum").value = ""
+        }
+    </script>
+</body>
