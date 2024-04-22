@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        function KiemTra() {
+            var Regex = /Web/
+            if (Regex.test(window.document.nhap.xau.value)) {
+                window.document.nhap.kq.value = "Trong chuoi co chu web"
+            } else {
+                window.document.nhap.kq.value = "Trong chuoi khong co chu web"
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form action="" name="nhap">
+        <table border="1">
+            <tr>
+                <td>Nhap xau:</td>
+                <td><input type="text" name="xau"></td>
+            </tr>
+            <tr>
+                <td>Ket qua:</td>
+                <td><input type="text" name="kq"></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="reset" value="xoa">
+                    <input type="button" value="Kiem tra" onclick="KiemTra()">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>

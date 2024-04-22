@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        function dem() {
+            var Regex = /[a-z]|[A-Z]/
+            var str = window.document.nhap.chuoi.value
+            count = 0
+            for (i = 0; i < str.length; i++) {
+                if (Regex.test(str.charAt(i))) 
+                    count++
+            }
+            window.document.nhap.kq.value = count
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="nhap">
+        <table>
+            <tr>
+                <td colspan="2">Dem ky tu</td>
+            </tr>
+            <tr>
+                <td>Nhap chuoi:</td>
+                <td><input type="text" name="chuoi"></td>
+            </tr>
+            <tr>
+                <td>So ky tu chu cai trong chuoi</td>
+                <td><input type="text" name="kq"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Dem" onclick="dem()">
+                    <button type="reset">Huy bo</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>

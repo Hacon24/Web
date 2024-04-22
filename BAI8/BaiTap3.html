@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        function dem() {
+            var str = window.document.nhap.chuoi.value
+            var mang = str.split(',')
+            var tong = 0, csC = 0, csL = 0, gtC = 0, gtL = 0, sA = 0, sD = 0, sch3 = 0
+            for (i = 0; i < mang.length; i++) {
+                var a = parseInt(mang[i])
+                tong += a
+                if (i % 2 == 0) csC += a
+                else csL += a
+                if (mang[i] % 2 == 0) gtC += a
+                else gtL += a
+                if (mang[i] > 0) sD += a
+                else sA += a
+                if (mang[i] % 3 == 0) sch3 += a
+            }
+
+            window.document.nhap.kq1.value = tong
+            window.document.nhap.kq2.value = csC
+            window.document.nhap.kq3.value = csL
+            window.document.nhap.kq4.value = gtC
+            window.document.nhap.kq5.value = gtL
+            window.document.nhap.kq6.value = sA
+            window.document.nhap.kq7.value = sD
+            window.document.nhap.kq8.value = sch3
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="nhap">
+        <table>
+            <tr>
+                <td colspan="2">Dem ky tu</td>
+            </tr>
+            <tr>
+                <td>Nhap day so:</td>
+                <td><input type="text" name="chuoi" value="1,-2,3,4,5,6,7,8,9"></td>
+            </tr>
+            <tr>
+                <td>Tinh tong day so:</td>
+                <td><input type="text" name="kq1"></td>
+            </tr>
+            <tr>
+                <td>Tinh tong cac phan tu co chi so chan:</td>
+                <td><input type="text" name="kq2"></td>
+            </tr>
+            <tr>
+                <td>Tinh tong cac phan tu co chi so le:</td>
+                <td><input type="text" name="kq3"></td>
+            </tr>
+            <tr>
+                <td>Tinh tong cac phan tu co gia tri chan:</td>
+                <td><input type="text" name="kq4"></td>
+            </tr>
+            <tr>
+                <td>Tinh tong cac phan tu co gia tri le:</td>
+                <td><input type="text" name="kq5"></td>
+            </tr>
+            <tr>
+                <td>Tinh tong cac phan tu co gia tri am:</td>
+                <td><input type="text" name="kq6"></td>
+            </tr>
+            <tr>
+                <td>Tinh tong cac phan tu co gia tri duong:</td>
+                <td><input type="text" name="kq7"></td>
+            </tr>
+            <tr>
+                <td>Tinh tong cac phan ti co gia tri chia het cho 3:</td>
+                <td><input type="text" name="kq8"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="button" value="Dem" onclick="dem()">
+                    <button type="reset">Huy bo</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<body>
+    <table border="1" cellpadding="5px">
+        <tr>
+            <td colspan="2">
+                <p align="center">Quản Lý Điểm</p>
+            </td>
+        </tr>
+        <tr>
+            <td>Mã học sinh:</td>
+            <td><input type="text" id=""></td>
+        </tr>
+        <tr>
+            <td>Họ Tên</td>
+            <td><input type="text" id=""></td>
+        </tr>
+        <tr>
+            <td>Điểm Toán</td>
+            <td><input type="text" id="diemToan"></td>
+        </tr>
+        <tr>
+            <td>Điểm Văn</td>
+            <td><input type="text" id="diemVan"></td>
+        </tr>
+        <tr>
+            <td>Điểm Ngoại Ngữ</td>
+            <td><input type="text" id="diemNN"></td>
+        </tr>
+        <tr>
+            <td>Tổng điểm</td>
+            <td><input type="text" id="diemTong"></td>
+        </tr>
+        <tr>
+            <td>Kết quả</td>
+            <td><input type="text" id="ketQua"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <button onclick="cal()">Tính</button>
+                <button onclick="del()">Xóa</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        function cal() {
+            var diemToan = document.getElementById("diemToan").value 
+            var diemVan = document.getElementById("diemVan").value
+            var diemNN = document.getElementById("diemNN").value
+
+            var tongDiem = parseFloat(diemToan) + parseFloat(diemVan) + parseFloat(diemNN)
+            document.getElementById("diemTong").value = tongDiem
+
+            
+            if (parseFloat(diemToan) == 0 || parseFloat(diemVan) == 0 || parseFloat(diemNN) == 0) {
+                document.getElementById("ketQua").value = "Truot"
+            } else if (tongDiem >= 15) {
+                document.getElementById("ketQua").value = "Do"
+            }
+        }
+
+        function del() {
+            document.getElementById("diemToan").value = ""
+            document.getElementById("diemVan").value = ""
+            document.getElementById("diemNN").value = ""
+            document.getElementById("diemTong").value = ""
+            document.getElementById("ketQua").value = ""
+        }
+    </script>
+</body>

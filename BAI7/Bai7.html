@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <script>
+        function Check() {
+            var Regex = /^\d{5,7}$/
+            if (Regex.test(window.document.nhap.chuoi.value)) {
+                window.document.nhap.kq.value = 1
+            } else {
+                window.document.nhap.kq.value = 0
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" name="nhap">
+        <table border="1">
+            <tr>
+                <td>Nhap chuoi</td>
+                <td><input type="text" name="chuoi"></td>
+            </tr>
+            <tr>
+                <td>Ket qua:</td>
+                <td><input type="text" name="kq"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="reset">Xoa</button>
+                    <button type="button" onclick="Check()">Kiem tra</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
