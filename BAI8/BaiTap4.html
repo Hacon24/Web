@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <head>
     <script>
-        function dao() {
+        function daoLib() {
             var str = window.document.nhap.mang.value
             var mang = str.split(',').reverse().join(',')
-            var arr = str.split(',')
-            var newA = ''
-            for (let i = arr.length - 1; i >= 0; i--)
-                newA += mang[i]
-            window.document.nhap.kq.value = newA
+            window.document.nhap.kq.value = mang
         }
+
+        function daoLoop() {
+            var str = window.document.nhap.mang.value
+            var mang = str.split(', ')
+            for (let i = arr.length - 1; i >= 0; i--)
+                window.document.nhap.kq.value = i
+        }
+
     </script>
 </head>
 <body>
@@ -26,7 +30,7 @@
             <tr>
                 <td>
                     <input type="reset" value="Xoa">
-                    <button type="button" onclick="dao()">Dao</button>
+                    <button type="button" onclick="daoLoop()">Dao</button>
                 </td>
             </tr>
         </table>

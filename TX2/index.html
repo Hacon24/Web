@@ -1,86 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý thời gian và tiền</title>
+    <title>Test</title>
+    <link rel="stylesheet" href="test.css">
 </head>
+
 <body>
-    <table border="1" cellpadding="5px" cellspacing="0" align="center"> 
-        <tr>
-            <td colspan="2">Tính tiền Karaoke</td>
-        </tr>
-        <tr>
-            <td>
-                <label for="inputTime">Giờ vào (HH:MM):</label>
-            </td>
-            <td>
-                <input type="text" id="inputTime" placeholder="08:00">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="outputTime">Giờ ra (HH:MM):</label>
-            </td>
-            <td>
-                <input type="text" id="outputTime" placeholder="17:00">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <label for="">Tổng tiền:</label>
-            </td>
-            <td>
-                <input type="text" disabled id="totalPrice" placeholder="0 đồng">
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <button onclick="calculateTotal()">tổng tiền</button>
-                <button onclick="clearInputs()">Xóa</button>
-            </td>
-        </tr>
-    </table>
-    <script>
-        function calculateTotal() {
-            const inputTime = document.getElementById('inputTime').value;
-            const outputTime = document.getElementById('outputTime').value;
 
-            if (!/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(inputTime) || !/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(outputTime)) {
-                alert('Vui lòng nhập thời gian theo định dạng HH:MM');
-                return;
-            }
+    <header class="flex">
+        <img src="./logo.webp" alt="">
+        <div>
+            <input type="search" placeholder="Search" style="font-weight: 100; padding-left: 30px;">
+            <select id="" style="color: #666; font-weight: 100;">
+                <option value="1">Categories</option>
+            </select>
+        </div>
+        <p>0 Item($)-$0.00</p>
+    </header>
+    <nav>
+        <ul class="nav_lv1 flex">
+            <li>
+                Home
+            </li>
+            <li>
+                Women v
+            </li>
+            <li class="men_hover">
+                Men v
+                <ul class="nav_lv2">
+                    Clothing(0)
+                    <li>
+                        Coats(0)
+                    </li>
+                    <li>
+                        T-Shirts(0)
+                    </li>
+                    <li>
+                        Tennis(0)
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Jewelry
+            </li>
+            <li>
+                Books
+            </li>
+            <li>
+                Clothing v
+            </li>
+            <li>
+                Jeans
+            </li>
+            <li>
+                Accessories
+            </li>
+            <li>
+                Blog
+            </li>
+            <li>
+                The Girl Racing Bicycle v
+            </li>
+        </ul>
+    </nav>
 
-            const inputM = convertToMinutes(inputTime);
-            const outputM = convertToMinutes(outputTime);
+    <div id="content">
+        <div class="flex page" style="justify-content: space-between;">
+            <div class="flex">
+                <button>o</button>
+                <button>v</button>
+                <select name="text" id="text" style="width: 130px;">
+                    <option value="1">Default</option>
+                </select>
+                <select name="number" id="number">
+                    <option value="1">9</option>
+                </select>
+            </div>
+            <div>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>></button>
+                <button>>|</button>
+            </div>
+        </div>
+        <div class="flex info" style="justify-content: space-between; ">
+            <div class="main" style="position: relative;">
+                <span style="color: #fff; background-color: rgb(245, 175, 12);position: absolute;left: 0;">NEW</span>
+                <span style="color: #fff; background-color: rgb(7, 86, 105); position:absolute; right: 0;">SALE</span>
+                <img src="./logo.webp" alt="" class="png">
+                <div style="background-color: rgb(7, 86, 105); text-align: center;padding: 20px;">
+                    <p style="color: #fff; height: 20px;">Apple Cinema 30"</p>
+                    <p style="color: rgb(239, 155, 45); height: 10px;">* * * * *</p>
+                    <p style="color:rgb(188, 91, 151);">$110.00 <samp style="text-decoration: line-through; color: aliceblue;">$122.00</samp></p>
+                </div>
+            </div>
+            <div class="main" style="position: relative;">
+                <span style="color: #fff; background-color: rgb(245, 175, 12);position: absolute;left: 0;">NEW</span>
+                <span style="color: #fff; background-color: rgb(7, 86, 105); position:absolute; right: 0;">SALE</span>
+                <img src="./logo.webp" alt="" class="png">
+                <div style="background-color: rgb(7, 86, 105); text-align: center;padding: 20px;">
+                    <p style="color: #fff; height: 20px;">Apple Cinema 30"</p>
+                    <p style="color: rgb(239, 155, 45); height: 10px;">* * * * *</p>
+                    <p style="color:rgb(188, 91, 151);">$110.00 <samp style="text-decoration: line-through; color: aliceblue;">$122.00</samp></p>
+                </div>
+            </div>
+            <div class="main" style="position: relative;">
+                <span style="color: #fff; background-color: rgb(245, 175, 12);position: absolute;left: 0;">NEW</span>
+                <span style="color: #fff; background-color: rgb(7, 86, 105); position:absolute; right: 0;">SALE</span>
+                <img src="./logo.webp" alt="" class="png">
+                <div style="background-color: rgb(7, 86, 105); text-align: center;padding: 20px;">
+                    <p style="color: #fff; height: 20px;">Apple Cinema 30"</p>
+                    <p style="color: rgb(239, 155, 45); height: 10px;">* * * * *</p>
+                    <p style="color:rgb(188, 91, 151);">$110.00 <samp style="text-decoration: line-through; color: aliceblue;">$122.00</samp></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            const totalTimeMinutes = outputM - inputM;
-
-            const before = 40/60 * 1000;
-            const after = 1000;
-
-            let totalPrice = 0;
-            if (outputM <= convertToMinutes('18:00')) {
-                totalPrice = totalTimeMinutes * before;
-            } else if (inputM <= convertToMinutes('18:00') && outputM >= convertToMinutes('18:00')) {
-                totalPrice = ((convertToMinutes('18:00') - inputM) * before) + ((outputM - convertToMinutes('18:00')) * after)
-            } else {
-                totalPrice = totalTimeMinutes * after;
-            }
-
-            document.getElementById('totalPrice').value = `${totalPrice} đồng`;
-        }
-
-        function convertToMinutes(timeString) {
-            const [hours, minutes] = timeString.split(':');
-            return parseInt(hours) * 60 + parseInt(minutes);
-        }
-
-        function clearInputs() {
-            document.getElementById('inputTime').value = '';
-            document.getElementById('outputTime').value = '';
-            document.getElementById('totalPrice').value = '0 đồng';
-        }
-    </script>
+    <form style="width: 400px; text-align: center;padding: 20px 30px;">
+        <label for="input" style="line-height: 40px;">
+            Input: 
+        </label>
+        <input type="text" id="input" required><br>
+        <label for="output" style="line-height: 30px;">
+            Output:
+        </label>
+        <input type="text" id="output"><br>
+        <input type="button" value="Search" id="submit">
+        <input type="reset" value="Reset">
+    </form>
+    <div class="check">
+        <img src="./logo.webp" class="checkimg" alt="">
+    </div>
+    <script src="/Test.js"></script>
 </body>
+
 </html>
